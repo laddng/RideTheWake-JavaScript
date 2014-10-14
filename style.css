@@ -1,0 +1,147 @@
+html, body
+{
+	padding: 0;
+	margin: 0;
+	background: #E5E5E5;
+	font-family: Helvetica;
+	height: 100%;
+}
+
+#container
+{
+	margin: 0, auto;
+	padding: 0;
+	float:left;
+	width: 100%;
+	height: 100%;
+}
+
+header
+{
+	background-color: #20292C;
+	height: 10%;
+	color: #FFFFFF;
+	font-size: 19pt;
+	line-height: 40pt;
+	padding-left: 20pt;
+}
+
+header .gold
+{
+	color: #DDB039;
+}
+
+#offlineWarning
+{
+	padding: 5pt;
+	text-align: center;
+	background-color: #DDB039;
+	display: none;
+}
+
+#shuttleMap
+{	
+	width: 75%;
+	float: left;
+	height: 90%;
+}
+
+#mapCanvas
+{
+	background-color: #FFFFFF;
+	height: 100%;
+}
+
+#sidebar
+{
+	width: 25%;
+	float:right;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 90%;
+}
+
+#sidebar ul
+{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#sidebar ul a
+{
+	text-decoration: none;
+	color: #000000;
+}
+
+#sidebar ul a li
+{
+	display: block;
+	padding: 10pt;
+	width: 100%;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid #DEDEDE;
+	float: left;
+}
+
+#sidebar ul a li .shuttleIcon
+{
+	width: 38px;
+	float: left;
+	margin-right: 10pt;
+}
+
+#sidebar ul a li .shuttleInfo
+{
+	width: 60%;
+	float: left;
+}
+
+#sidebar ul a li .shuttleInfo .shuttleName
+{
+	color: #000000;
+	font-weight: bold;
+}
+
+#sidebar ul a li .shuttleInfo .shuttleStops
+{
+	font-size: 10pt;
+	color: #ADADAD;
+	padding-top: 6pt;
+}
+
+.title
+{
+	width: auto;
+	display: block;
+	color:#FFFFFF;
+	text-align: center;
+	padding: 10pt;
+	font-size: 13pt;
+	background-color: #40494C;
+}
+
+#iphoneAppAd
+{
+	width: 100%;
+	float: left;
+	text-align: center;
+	margin: 10pt 0 10pt 0;
+	font-size: 10pt;
+}
+
+#iphoneAppAd #appIcon
+{
+	width: 120px;
+	margin: 10pt auto;
+}
+
+#about
+{
+	width: auto;
+	display: block;
+	text-align: center;
+	line-height: 15pt;
+	font-size: 10pt;
+	padding: 10pt;
+}
