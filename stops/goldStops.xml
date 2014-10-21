@@ -1,0 +1,15 @@
+<stops>
+    
+    <stop name="ZSR Library Entrance" coordinateLat="36.13228" coordinateLon="-80.2783" times="xx:20   xx:50" >
+        
+    <stop name="Crowne Polo" coordinateLat="36.14001" coordinateLon="-80.28966" times="xx:30   xx:00" >
+            
+    <stop name="Crowne Park - Building 200" coordinateLat="36.14358" coordinateLon="-80.29433" times="xx:35   xx:05" >
+                
+    <stop name="Crystal Lake - Building 10" coordinateLat="36.14106" coordinateLon="-80.2976" times="xx:40   xx:10" >
+                    
+    <stop name="Reynolda Rd. Entrance" coordinateLat="36.12972" coordinateLon="-80.28685" times="xx:45   xx:15" >
+                        
+    <stopInformation info="The Gold Line starts at 7:20am with a final loop starting at 9:20pm. It is a Monday - Friday service. There is no service from 10:50am - 11:20am and 6:20pm - 6:50pm. " >
+                            
+</stops>

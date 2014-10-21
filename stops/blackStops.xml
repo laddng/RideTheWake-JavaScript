@@ -1,0 +1,15 @@
+<stops>
+
+    <stop name="Wake Forest Rd and Wingate Rd" coordinateLat="36.13525" coordinateLon="-80.27677" times="xx:20   xx:50" >
+
+    <stop name="Alaris Village - Building 5005" coordinateLat="36.16505" coordinateLon="-80.27911" times="xx:30   xx:00" >
+
+    <stop name="Deacon Ridge - Building 900" coordinateLat="36.14806" coordinateLon="-80.28133" times="xx:37   xx:07" >
+
+    <stop name="Crowne Oaks" coordinateLat="36.14799" coordinateLon="-80.28544" times="xx:40   xx:10" >
+
+    <stop name="Wake Forest Rd and Wingate Rd" coordinateLat="36.13525" coordinateLon="-80.27677" times="xx:15   xx:45" >
+
+    <stopInformation info="The Black Line starts at 7:20am with a final loop starting at 9:20pm. It is a Monday - Friday service. There is no service from 10:50am - 11:20am and 6:20pm - 6:50pm." >
+
+</stops>

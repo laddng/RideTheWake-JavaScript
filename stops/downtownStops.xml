@@ -1,0 +1,13 @@
+<stops>
+    
+    <stop name="The Last Resort" coordinateLat="36.129181" coordinateLon="-80.258384" times="N/A" >
+        
+    <stop name="Tate's Bar" coordinateLat="36.098222" coordinateLon="-80.246861" times="N/A" >
+            
+    <stop name="Finnigan's Pub" coordinateLat="36.102085" coordinateLon="-80.24639" times="N/A" >
+                
+    <stop name="Benson University Center" coordinateLat="36.133016" coordinateLon="-80.277953" times="N/A" >
+                        
+    <stopInformation info="The Deacon's Downtown Line provides evening service beginning at 9:30pm on Thursday, Friday, and Saturday. The last downtown pick up is between 2:30am and 2:45am. It runs on the hour from Benson University Center." >
+                            
+</stops>

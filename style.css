@@ -22,16 +22,21 @@ header
 	height: 10%;
 	color: #FFFFFF;
 	font-size: 19pt;
-	line-height: 40pt;
-	padding-left: 20pt;
 }
 
-header .gold
+header #logo
+{
+	margin-left: 20pt;
+	position: absolute;
+	top: 3%;
+}
+
+header #logo .gold
 {
 	color: #DDB039;
 }
 
-#offlineWarning
+#statusBarOffline
 {
 	padding: 5pt;
 	text-align: center;
@@ -39,9 +44,16 @@ header .gold
 	display: none;
 }
 
+#statusBar #schedule
+{
+	float: right;
+	width: 200px;
+	text-align: right;
+}
+
 #shuttleMap
 {	
-	width: 75%;
+	width: 71%;
 	float: left;
 	height: 90%;
 }
@@ -52,9 +64,15 @@ header .gold
 	height: 100%;
 }
 
+.infoWindow
+{
+	width: 150px;
+	text-align: center;
+}
+
 #sidebar
 {
-	width: 25%;
+	width: 29%;
 	float:right;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -100,13 +118,13 @@ header .gold
 #sidebar ul a li .shuttleInfo .shuttleName
 {
 	color: #000000;
-	font-weight: bold;
+	font-size: 11pt;
 }
 
 #sidebar ul a li .shuttleInfo .shuttleStops
 {
-	font-size: 10pt;
-	color: #ADADAD;
+	font-size: 9pt;
+	color: #A0A0A0;
 	padding-top: 6pt;
 }
 

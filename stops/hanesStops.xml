@@ -1,0 +1,13 @@
+<stops>
+    
+    <stop name="Benson University Center" coordinateLat="36.133016" coordinateLon="-80.277953" times="xx:00" >
+        
+    <stop name="Hanes Mall Food Court" coordinateLat="36.06794" coordinateLon="-80.30037" times="xx:17" >
+            
+    <stop name="River Birch Restaurant" coordinateLat="36.11569" coordinateLon="-80.31268" times="xx:30" >
+                
+    <stop name="Target" coordinateLat="36.16842" coordinateLon="-80.27869" times="xx:46" >
+                        
+    <stopInformation info="The Hanes Mall Line runs on Saturday from 11:00am - 9:46pm and on Sunday from 12:00pm - 6:46pm." >
+                            
+</stops>

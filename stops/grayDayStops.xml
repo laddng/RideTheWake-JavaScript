@@ -1,0 +1,19 @@
+<stops>
+    
+    <stop name="Student Drive Lower" coordinateLat="36.14069" coordinateLon="-80.28036" times="xx:28   xx:58" >
+
+    <stop name="Student Drive Upper" coordinateLat="36.14012" coordinateLon="-80.27920" times="xx:30   xx:00" >
+
+    <stop name="Winston Salem First Church Lot" coordinateLat="36.14036" coordinateLon="-80.27793" times="xx:33   xx:03" >
+        
+    <stop name="Wake Forest Rd and Wingate Rd" coordinateLat="36.13525" coordinateLon="-80.27677" times="xx:37   xx:07" >
+        
+    <stop name="UCC Entrance" coordinateLat="36.133841" coordinateLon="-80.260343" times="xx:43   xx:13" >
+
+    <stop name="UCC Satellite/Freshmen Lot" coordinateLat="36.13078" coordinateLon="-80.25772" times="xx:45   xx:15" >
+        
+    <stop name="Wake Forest Rd and Wingate Rd" coordinateLat="36.13525" coordinateLon="-80.27677" times="xx:55   xx:25" >
+
+    <stopInformation info="The Gray Day Line begins at 7:28am with the final loop starting at 6:58pm. It is a Monday - Friday service. There is a satellite lot early bird departure at 7:20am Monday - Friday. There is no service from 10:58am - 11:30am." >
+                            
+</stops>

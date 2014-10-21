@@ -1,0 +1,23 @@
+<stops>
+    
+    <stop name="ZSR Library" coordinateLat="36.13228" coordinateLon="-80.27829" times="xx:30   xx:00" >
+        
+    <stop name="North Campus Apartments" coordinateLat="36.13451" coordinateLon="-80.28185" times="xx:33   xx:03" >
+            
+    <stop name="Polo/Martin/Magnolia" coordinateLat="36.13737" coordinateLon="-80.28070" times="xx:35   xx:05" >
+                
+    <stop name="Student Drive Lower" coordinateLat="36.14069" coordinateLon="-80.28036" times="xx:43   xx:14" >
+                    
+    <stop name="Student Drive Upper" coordinateLat="36.14012" coordinateLon="-80.27920" times="xx:45   xx:16" >
+                        
+    <stop name="Winston Salem First Church Lot" coordinateLat="36.14036" coordinateLon="-80.27793" times="xx:47   xx:18" >
+                            
+    <stop name="Palmer/Piccolo" coordinateLat="36.13541" coordinateLon="-80.27366" times="xx:51   xx:22" >
+
+    <stop name="Reynolds Gym" coordinateLat="36.13433" coordinateLon="-80.27619" times="xx:53   xx:24" >
+        
+    <stop name="Johnson/Luter" coordinateLat="36.13165" coordinateLon="-80.27719" times="xx:55   xx:26" >
+
+    <stopInformation info="The Gray Night Line begins at 7:30pm with the last loop beginning at 2:30am. It is a Monday - Friday service. There is no service from 11:00pm - 11:30pm." >
+                                    
+</stops>
