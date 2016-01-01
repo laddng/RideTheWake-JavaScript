@@ -30,7 +30,7 @@
 
 		}
 
-		$numOfShuttles = $shuttleInformationData -> count();
+		$numOfShuttles = count($shuttleInformationData->children());
 
 	?>
 
@@ -39,6 +39,8 @@
 		var mapReferenceObject;
 
 		var shuttleMarkerReference;
+
+		var shuttleMarkerInfoWindow;
 
 		var shuttleLocation = [];
 
@@ -52,6 +54,10 @@
 
 		var infoWindows = [];
 
+		var stopTimes = [];
+
+		var refreshFunction;
+
 		<?
 
 			for($i=0; $i<$numOfShuttles; $i++){
@@ -64,9 +70,11 @@
 				$lineColorG = $shuttleInformationData -> shuttle[$i]['lineColorG'];
 				$lineColorB = $shuttleInformationData -> shuttle[$i]['lineColorB'];
 				$serverShuttleURL = $shuttleInformationData -> shuttle[$i]['serverShuttleURL'];
+				$shuttleName = $shuttleInformationData -> shuttle[$i]['name'];
 
 				$infoData = '"'.$shuttleID.'",'.$mapViewInitialZoomLevel.','.
-				$mapViewCenterCoordinateLat.','.$mapViewCenterCoordinateLon.','.$lineColorR.','.$lineColorG.','.$lineColorB.',"'.$serverShuttleURL.'"';
+				$mapViewCenterCoordinateLat.','.$mapViewCenterCoordinateLon.','
+				.$lineColorR.','.$lineColorG.','.$lineColorB.',"'.$serverShuttleURL.'","'.$shuttleName.'"';
 
 		?>
 
@@ -92,16 +100,25 @@
 	    function changeLine(lineID)
 		{
 
+			clearInterval(refreshFunction);
+
 			mapReferenceObject.setOptions({center:{lat:shuttleLines[lineID][2], lng: shuttleLines[lineID][3]}, zoom:shuttleLines[lineID][1]});
 
 			clearMarkers();
 
 			loadLine(lineID, mapReferenceObject);
 
+			if(document.getElementById("scheduleContent").innerHTML != "")
+			{
+				showSchedule();
+			}
+
 		}
 
 		function loadLine(lineID, map)
 		{
+
+	        loadShuttleSchedule(lineID);
 
 	        loadPolyline(lineID, map);
 
@@ -109,7 +126,7 @@
 
 			initializeShuttleMarker(lineID, map);
 
-	        //startAutorefresh(shuttleMarkerReference, lineID, map);
+	        autoRefresh(lineID, map);
 
 		}
 
@@ -202,6 +219,12 @@
 			$(data).find('stop').each(function()
 			{
 
+				var stop = [];
+				stop[0] = $(this).attr("name");
+				stop[1] = $(this).attr("times");
+
+				stopTimes.push(stop);
+
 			    var stopCoordinates = new google.maps.LatLng($(this).attr("coordinateLat"),$(this).attr("coordinateLon"));
 
 			    var stopMarker = new google.maps.Marker({
@@ -223,6 +246,11 @@
 
 		    });
 
+		    $(data).find('stopInformation').each(function()
+		    {
+		    	stopTimes.push($(this).attr("info"));
+		    });
+
 		}
 
 		function clearMarkers()
@@ -240,7 +268,9 @@
 
   			infoWindows = [];
 
-  			shuttleMarker.setMap(null);
+  			stopTimes = [];
+
+  			shuttleMarkerReference.setMap(null);
 
 		}
 
@@ -253,21 +283,22 @@
 
 		    var shuttleCoordinates = new google.maps.LatLng(shuttleLocation[0],shuttleLocation[1]);
 
-		    shuttleMarker = new google.maps.Marker({
+		    shuttleMarkerReference = new google.maps.Marker({
 			    position: shuttleCoordinates,
+			    zIndex: 100,
 			    map: map,
 			    icon: image
 		    });
 
-		   	var infowindow = new google.maps.InfoWindow({
-		      content: "<div class='infoWindow'>Updated at "+shuttleLocation[2]+" PM.<br>There are "+shuttleLocation[3]+" passengers.</div>",
+		   	shuttleMarkerInfoWindow = new google.maps.InfoWindow({
+		      content: "<div class='infoWindow'>Updated at "+shuttleLocation[2]+".<br>There are "+shuttleLocation[3]+" passengers.</div>",
 		      maxWidth: 200
 		 	});
 
-		 	google.maps.event.addListener(shuttleMarker, 'click', function()
+		 	google.maps.event.addListener(shuttleMarkerReference, 'click', function()
 		 	{
 
-		    	infowindow.open(map,shuttleMarker);
+		    	shuttleMarkerInfoWindow.open(map,shuttleMarkerReference);
 
 		 	});
 
@@ -294,13 +325,81 @@
 
 			    shuttleLocation[0] = $(this).attr("lat");
 			    shuttleLocation[1] = $(this).attr("lng");
-			    shuttleLocation[2] = $(this).attr("time");
+			    var str = $(this).attr("time");
+			    var split = str.split(":");
+			    var d = new Date(2014, 10, 20, split[0], split[1], split[2], 00);
+			    shuttleLocation[2] = formatAMPM(d);
 			    shuttleLocation[3] = $(this).attr("passenger");
 
 		    });
 
 		}
 
+		function formatAMPM(date)
+		{
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var ampm = hours >= 12 ? 'pm' : 'am';
+			hours = hours % 12;
+			hours = hours ? hours : 12;
+			minutes = minutes < 10 ? '0'+minutes : minutes;
+			var strTime = hours + ':' + minutes + ' ' + ampm;
+			return strTime;
+		}
+
+		function autoRefresh(lineID, mapReference)
+		{
+
+			refreshFunction = window.setInterval(function(){changeShuttleLocation(lineID, mapReference)}, 5000);
+
+		}
+
+		function changeShuttleLocation(lineID, mapReference)
+		{
+
+			downloadShuttleLocation(lineID);
+		    
+		    var shuttleCoordinates = new google.maps.LatLng(shuttleLocation[0],shuttleLocation[1]);
+
+		    shuttleMarkerReference.setOptions({position:shuttleCoordinates});
+
+		    shuttleMarkerInfoWindow.setOptions({content:"<div class='infoWindow'>Updated at "+shuttleLocation[2]+".<br>There are "+shuttleLocation[3]+" passengers.</div>"});
+
+		}
+
+		function loadShuttleSchedule(lineID)
+		{
+
+			document.getElementById("line").innerHTML = shuttleLines[lineID][8];
+
+		}
+
+		function showSchedule()
+		{
+
+			document.getElementById("showSchedule").innerHTML = "<a href='#' onClick='hideSchedule()'>▿ Hide shuttle schedule</a>";
+
+			var HTML = "<table>";
+
+			for(var j=0; j<stopTimes.length-1; j++)
+			{
+			    HTML += "<tr><th>"+stopTimes[j][0]+"</th></tr><tr><td>"+stopTimes[j][1]+"</td></tr>";
+			}
+
+			HTML += "</table><br>"+stopTimes[stopTimes.length-1];
+
+			document.getElementById("scheduleContent").innerHTML = HTML;
+
+		}
+
+		function hideSchedule()
+		{
+
+			document.getElementById("showSchedule").innerHTML = "<a href='#' onClick='showSchedule()'>▹ Show shuttle schedule</a>";
+
+			document.getElementById("scheduleContent").innerHTML = "";
+
+		}
 
 	</script>
 
@@ -314,8 +413,12 @@
 
 
 	<div id="shuttleMap">
-		<div id="statusBarOffline">This shuttle is currently not running. Check the schedule to see the operating times.</div>
-	<div id="mapCanvas"></div>
+		<div id="mapCanvas"></div>
+		<div id="statusPanel">
+			<b><span id="line">Black Line</span></b>
+			<br><span id="showSchedule"><a href="#" onClick="showSchedule()">▹ Show shuttle schedule</a></span>
+			<div id="scheduleContent"></div>
+		</div>
 	</div>
 
 	<div id="sidebar">
@@ -354,7 +457,7 @@
 			<a href="#" onclick="changeLine(<?=$i?>)">
 				<li>
 
-				<div class="shuttleIcon"><img src="img/shuttleIcons/<?=$id?>ShuttleIcon.png" width='38px' \></div>
+				<div class="shuttleIcon"><img src="img/shuttleIcons/<?=$id?>ShuttleIcon.png" width='30px' \></div>
 				<div class="shuttleInfo">
 					<span class="shuttleName"><?=$name?></span><br>
 					<span class="shuttleStops"><?=$stops?></span>

@@ -36,32 +36,70 @@ header #logo .gold
 	color: #DDB039;
 }
 
-#statusBarOffline
-{
-	padding: 5pt;
-	text-align: center;
-	background-color: #DDB039;
-	display: none;
-}
-
-#statusBar #schedule
-{
-	float: right;
-	width: 200px;
-	text-align: right;
-}
-
 #shuttleMap
 {	
 	width: 71%;
 	float: left;
 	height: 90%;
+	position: relative;
+	display:block;
+	position:relative; 
+	top:0px; 
+	left:0px; 
+	right: 0px;
 }
 
 #mapCanvas
 {
 	background-color: #FFFFFF;
 	height: 100%;
+	position: relative;
+}
+
+#statusPanel
+{
+	display:block;
+	position:absolute;
+	top:60px;
+	right: 20px; 
+	color: #fff;
+	z-index:99999;
+    background-color: #000000;
+    border: 2px solid #DDB039;
+	width: 250px;
+	padding: 8px;
+	opacity: 0.85;
+	filter: alpha(opacity=85);
+	font-size: 10pt;
+}
+
+#statusPanel a {
+	text-decoration: none;
+	color: #DDB039;
+	line-height: 15pt;
+
+}
+
+#statusPanel #green
+{
+	color: green;
+}
+
+#statusPanel #red
+{
+	color: red;
+	display: none;
+}
+
+#statusPanel #scheduleContent table
+{
+	width: 100%;
+	text-align: center;
+}
+
+#statusPanel #scheduleContent table th
+{
+	background: #181818;
 }
 
 .infoWindow
@@ -96,22 +134,22 @@ header #logo .gold
 {
 	display: block;
 	padding: 10pt;
+	margin: 1px;
 	width: 100%;
 	background-color: #FAFAFA;
-	border-bottom: 1px solid #DEDEDE;
 	float: left;
 }
 
 #sidebar ul a li .shuttleIcon
 {
-	width: 38px;
+	width: 30px;
 	float: left;
-	margin-right: 10pt;
+	margin-right: 8pt;
 }
 
 #sidebar ul a li .shuttleInfo
 {
-	width: 60%;
+	width: 72%;
 	float: left;
 }
 
@@ -134,8 +172,8 @@ header #logo .gold
 	display: block;
 	color:#FFFFFF;
 	text-align: center;
-	padding: 10pt;
-	font-size: 13pt;
+	padding: 7pt;
+	font-size: 12pt;
 	background-color: #40494C;
 }
 
